@@ -1,0 +1,6 @@
+server.crt
+server.key
+premastersecret.log
+# idea files
+*.iml
+.idea

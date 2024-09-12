@@ -30,5 +30,5 @@ def main():
             client_sock.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

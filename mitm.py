@@ -43,7 +43,7 @@ def handle_client(client_socket, server_addr, server_port):
     server_socket.close()
 
 
-def main(port=8443, server_addr='localhost', server_port=8444):
+def main(port, server_addr, server_port):
     mitm_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     mitm_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
@@ -62,5 +62,12 @@ def main(port=8443, server_addr='localhost', server_port=8444):
         threading.Thread(target=handle_client, args=(client_socket, server_addr, server_port)).start()
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser(description='mitm tool')
+    parser.add_argument('--port', metavar='port', type=int, default=8443, help='set mitm port')
+    parser.add_argument('--server_addr', metavar='addr', default='localhost', help='set server address')
+    parser.add_argument('--server_port', metavar='port', type=int, default=8444, help='set server port')
+    args = parser.parse_args()
+    main(port=args.port, server_addr=args.server_addr, server_port=args.server_port)

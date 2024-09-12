@@ -10,7 +10,7 @@ def main():
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     try:
-        sock.bind(('localhost', 8443))  # Port of server
+        sock.bind(('localhost', 8444))  # Port of server
         sock.listen(5)
     except OSError as e:
         print(f"Error binding port: {e}")

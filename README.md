@@ -5,6 +5,9 @@
 3. Start the server in a terminal window: `python server.py`
 4. Start the client in another terminal window: `python client.py`
 
+## Participants
+Client, Server (port: 8444), opt. Man-in-the-middle (port: 8443)
+
 ## Recording communication with Wireshark
 1. Open [Wireshark](https://www.wireshark.org/) and select `Loopback:lo` as the network interface, as we are working locally.
 2. If you want to further reduce the amount of information displayed, you can set a filter on the port `8443` with `tcp.port == 8443`.

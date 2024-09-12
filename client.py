@@ -19,7 +19,7 @@ def main():
     # Establishing a connection to the server
     with socket.create_connection(('localhost', 8443)) as sock:
         with context.wrap_socket(sock, server_hostname='localhost') as tls_sock:
-            print(f"Conntected to server {tls_sock.getpeername()}")
+            print(f"Conntected to server: {tls_sock.getpeername()}")
             received_data = tls_sock.recv(1024)
             print(received_data.decode('utf-8'))
 

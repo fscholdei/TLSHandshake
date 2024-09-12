@@ -24,7 +24,7 @@ def main():
     with context.wrap_socket(sock, server_side=True) as tls_sock:
         while True:
             client_sock, addr = tls_sock.accept()
-            print(f"Connected to client {addr}.")
+            print(f"Connected to client: {addr}")
             client_sock.sendall(b"Hello Client!\n")
             print("Sending 'Hello Client!' to the client.")
             client_sock.close()

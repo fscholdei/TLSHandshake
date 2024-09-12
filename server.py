@@ -3,16 +3,16 @@ import ssl
 
 
 def main():
-    # Socket erstellen
+    # Create socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
     sock.bind(('localhost', 8443))
     sock.listen(5)
 
-    # Kontext für SSL erstellen
+    # Create context for SSL
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     context.load_cert_chain(certfile='server.crt', keyfile='server.key')
 
-    # Socket in einen SSL-Socket umwandeln
+    # Convert socket to an SSL socket
     with context.wrap_socket(sock, server_side=True) as tls_sock:
         while True:
             client_sock, addr = tls_sock.accept()
